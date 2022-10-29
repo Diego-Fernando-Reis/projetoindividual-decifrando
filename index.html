@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>Code or Decode</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mostraModulo" id="modulo">
+            <p>Codificar Mensagem</p>
+        </div>
+        <form action="">
+            <input type="radio" id="code" name="modo" value="code">
+            <label for="code" id="code">Codificar</label><br>
+            <input type="radio" id="decode" name="modo" value="decode">
+            <label for="decode">Decodificar</label><br>
+            <input type="radio" id="cifra" name="cripto" value="cifra">
+            <label for="cifra">Cifra de César</label><br>
+            <input type="radio" id="base" name="cripto" value="base">
+            <label for="base">Base 64</label><br>
+            <input type="text" id="incremento" placeholder="Insira o incremento">
+            <input type="text" id="mensagemCode" placeholder="Informe aqui a mensagem a ser codificada!">
+            <input type="text" id="mensagemDecode" placeholder="Informe aqui a mensagem a ser decodificada!">
+            <input type="button" id="btn" value="Codificar">
+        </form>
+        <div class="mostrarResultado">
+
+        </div>
+    </main>
+    
+    <script src="./js/index.js"></script>
+    <footer>
+
+    </footer>
+</body>
+</html>

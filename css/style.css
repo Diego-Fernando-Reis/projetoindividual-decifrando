@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+header .title{
+    text-align: center;
+}
+
+input[placeholder="Insira o incremento"]{
+    display: none;
+}
+
+input[placeholder="Informe aqui a mensagem a ser decodificada!"]{
+    display: none;
+}
+
+input[type="text"]{
+    width: 500px;
+}
