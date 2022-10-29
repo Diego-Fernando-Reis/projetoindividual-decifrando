@@ -15,6 +15,7 @@ code.addEventListener('click', () => {
  mensagemCode.style.display = 'block';
  mensagemDecode.style.display = 'none';
  btn.value = 'codificar';
+ alert(btoa('Diego'));
 })
 
 decode.addEventListener('click', () => {
@@ -22,6 +23,7 @@ decode.addEventListener('click', () => {
  mensagemCode.style.display = 'none';
  mensagemDecode.style.display = 'block';
  btn.value = 'decodificar';
+ alert(atob('RGllZ28='));
 })
 
 cifra.addEventListener('click', () => {
@@ -31,3 +33,4 @@ cifra.addEventListener('click', () => {
 base.addEventListener('click', () => {
  incremento.style.display = 'none';
 })
+
