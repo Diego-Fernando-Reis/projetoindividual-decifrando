@@ -7,14 +7,15 @@ const mensagemCode = document.getElementById('mensagemCode');
 const mensagemDecode = document.getElementById('mensagemDecode');
 const incremento = document.getElementById('incremento');
 const btn = document.getElementById('btn');
-const form = document.getElementById('form');
+const formulario = document.getElementById('formulario');
+const mostrarResultado = document.getElementById('mostrarResultado');
 
 code.addEventListener('click', () => {
  modulo.innerHTML = `<p>Codificar Mensagem</p>`;
  mensagemCode.style.display = 'block';
  mensagemDecode.style.display = 'none';
  btn.value = 'codificar';
- alert(btoa('Diego'));
+ 
 })
 
 decode.addEventListener('click', () => {
@@ -22,7 +23,6 @@ decode.addEventListener('click', () => {
  mensagemCode.style.display = 'none';
  mensagemDecode.style.display = 'block';
  btn.value = 'decodificar';
- alert(atob('RGllZ28='));
 })
 
 cifra.addEventListener('click', () => {
@@ -33,12 +33,42 @@ base.addEventListener('click', () => {
  incremento.style.display = 'none';
 })
 
-form.addEventListener('submit', (e) =>{
+formulario.addEventListener('submit', (e) =>{
+  e.preventDefault();
+  let radios = document.getElementsByName('modo');
+  let radios2 = document.getElementsByName('cripto');
 
- e.preventDefault;
+  for(var i = 0; i< radios.length; i++){
+    if(radios[0].checked){
+      for(var i = 0; i< radios2.length; i++){
+        if(radios2[0].checked){
+          let mensagem = mensagemCode.value;
+          let valor = incremento.value;
+          typeof(valor);
+          mostrarResultado.innerHTML = `<p>${cifraDeCesarCodificar(mensagem, parseInt(valor))}</p>`;
+        }else if(radios2[1].checked){
+          let mensagem = mensagemCode.value;
+          mostrarResultado.innerHTML = `<p>${base64Codificar(mensagem)}</p>`;
+        }
+      }
+    }else if(radios[1].checked){
+      for(var i = 0; i< radios2.length; i++){
+        if(radios2[0].checked){
+          let mensagem = mensagemDecode.value;
+          let valor = incremento.value;
+          mostrarResultado.innerHTML = `<p>${cifraDeCesarDecodificar(mensagem, parseInt(valor))}</p>`;
+        }else if(radios2[1].checked){
+          let mensagem = mensagemDecode.value;
+          mostrarResultado.innerHTML = `<p>${base64Decodificar(mensagem)}</p>`;
+        }
+      }
+    }
+  }
+  
+  
 })
 
-function cifraDeCesar(valor, incremento) {
+function cifraDeCesarCodificar(valor, incremento) {
  let cifraDeCesar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
  let arrayTemporario = [];
@@ -56,7 +86,34 @@ function cifraDeCesar(valor, incremento) {
   i++;
  }
 
- return arrayTemporario;
+ return arrayTemporario.join("");
 }
 
-console.log(getElementsByName('modo').value);
+function cifraDeCesarDecodificar(valor, incremento) {
+  let cifraDeCesar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+ 
+  let arrayTemporario = [];
+  let i = 0;
+  arrayTemporario = valor.split('');
+ 
+  while(i < arrayTemporario.length){
+   if(cifraDeCesar.includes(arrayTemporario[i])){
+    arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) - incremento];
+   }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
+    arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase();
+   }else{
+    arrayTemporario[i] = arrayTemporario[i];
+   }
+   i++;
+  }
+ 
+  return arrayTemporario.join("");
+}
+
+function base64Codificar(valor){
+  return btoa(valor);
+}
+
+function base64Decodificar(valor){
+  return atob(valor);
+}
