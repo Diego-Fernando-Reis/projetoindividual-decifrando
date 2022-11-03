@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Criptografia</title>
 </head>
 <body>
@@ -14,26 +17,30 @@
         </div>
     </header>
     <main>
-        <div class="mostraModulo" id="modulo">
-            <p>Codificar Mensagem</p>
-        </div>
+        
         <form id="formulario">
-            <input type="radio" id="code" name="modo" value="code">
-            <label for="code" id="code">Codificar</label><br>
-            <input type="radio" id="decode" name="modo" value="decode">
-            <label for="decode">Decodificar</label><br>
-            <input type="radio" id="cifra" name="cripto" value="cifra">
-            <label for="cifra">Cifra de César</label><br>
-            <input type="radio" id="base" name="cripto" value="base">
-            <label for="base">Base 64</label><br>
-            <input type="text" id="incremento" placeholder="Insira o incremento">
-            <input type="text" id="mensagemCode" placeholder="Informe aqui a mensagem a ser codificada!">
-            <input type="text" id="mensagemDecode" placeholder="Informe aqui a mensagem a ser decodificada!">
-            <button type="submit" id="btn">Codificar</button>
+            <div class="esquerda">
+                <div class="mostraModulo" id="modulo">
+                    <p>Codificar Mensagem</p>
+                </div>
+                <input type="radio" id="code" name="modo" value="code">
+                <label for="code" id="code">Codificar</label><br>
+                <input type="radio" id="decode" name="modo" value="decode">
+                <label for="decode">Decodificar</label><br>
+                <input type="radio" id="cifra" name="cripto" value="cifra">
+                <label for="cifra">Cifra de César</label><br>
+                <input type="radio" id="base" name="cripto" value="base">
+                <label for="base">Base 64</label><br>
+            </div>
+            <div class="direita">
+                <input type="text" id="incremento" placeholder="Insira o incremento">
+                <textarea id="mensagemCode" placeholder="Informe aqui a mensagem a ser codificada!" rows="8" cols="50"></textarea>
+                <textarea id="mensagemDecode" placeholder="Informe aqui a mensagem a ser decodificada!" rows="8" cols="50"></textarea>
+                <br><button type="submit" id="btn">Codificar</button>
+                <div class="mostrarResultado" id="mostrarResultado"></div>
+            </div>
         </form>
-        <div class="mostrarResultado" id="mostrarResultado">
-
-        </div>
+        
     </main>
     
     <script src="./js/index.js"></script>

@@ -14,7 +14,7 @@ code.addEventListener('click', () => {
  modulo.innerHTML = `<p>Codificar Mensagem</p>`;
  mensagemCode.style.display = 'block';
  mensagemDecode.style.display = 'none';
- btn.value = 'codificar';
+ btn.innerText = 'Codificar';
  
 })
 
@@ -22,7 +22,7 @@ decode.addEventListener('click', () => {
  modulo.innerHTML =`<p>Decodificar Mensagem</p>`;
  mensagemCode.style.display = 'none';
  mensagemDecode.style.display = 'block';
- btn.value = 'decodificar';
+ btn.innerText = 'Decodificar';
 })
 
 cifra.addEventListener('click', () => {
@@ -76,14 +76,23 @@ function cifraDeCesarCodificar(valor, incremento) {
  arrayTemporario = valor.split('');
 
  while(i < arrayTemporario.length){
-  if(cifraDeCesar.includes(arrayTemporario[i])){
-   arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) + incremento];
-  }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
-   arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento].toLowerCase();
-  }else{
-   arrayTemporario[i] = arrayTemporario[i];
-  }
-  i++;
+    if(cifraDeCesar.includes(arrayTemporario[i])){
+      if(cifraDeCesar.indexOf(arrayTemporario[i]) + incremento >= cifraDeCesar.length){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) + incremento - cifraDeCesar.length]; 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) + incremento];
+      }
+      
+    }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
+      if(cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento >= cifraDeCesar.length){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento - cifraDeCesar.length].toLowerCase(); 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento].toLowerCase();
+      }
+    }else{
+      arrayTemporario[i] = arrayTemporario[i];
+    }
+    i++;
  }
 
  return arrayTemporario.join("");
@@ -97,13 +106,21 @@ function cifraDeCesarDecodificar(valor, incremento) {
   arrayTemporario = valor.split('');
  
   while(i < arrayTemporario.length){
-   if(cifraDeCesar.includes(arrayTemporario[i])){
-    arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) - incremento];
-   }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
-    arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase();
-   }else{
-    arrayTemporario[i] = arrayTemporario[i];
-   }
+    if(cifraDeCesar.includes(arrayTemporario[i])){
+      if(cifraDeCesar.indexOf(arrayTemporario[i]) - incremento < 0){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i]) - incremento]; 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) - incremento];
+      }
+    }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
+      if(cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento < 0){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase(); 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase();
+      }
+    }else{
+     arrayTemporario[i] = arrayTemporario[i];
+    }
    i++;
   }
  
