@@ -9,11 +9,17 @@ html, body{
     height: 100%;
 }
 
-header .title{
+header{
     text-align: left;
-    width: 90%;
-    margin: 20px auto;
+    padding: 10px 0;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
 
+header .title{
+    width: 90%;
+    margin: 0 auto;
 }
 
 input[placeholder="Insira o incremento"]{
@@ -24,6 +30,10 @@ input[placeholder="Insira o incremento"]{
     resize: none;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+input{
+    margin-bottom: 20px;
 }
 
 textarea[placeholder="Informe aqui a mensagem a ser decodificada!"]{
@@ -47,8 +57,28 @@ form .esquerda{
     width: 30%;
 }
 
+.mostraModulo{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+label{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
 form .direita{
     width: 70%;
+}
+
+input[type='radio']{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    z-index: 7;
+    color: black;
+    margin-bottom: 30px;
 }
 
 form button{
@@ -57,4 +87,19 @@ form button{
     background-color: black;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+form button:hover{
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+}
+
+.mostrarResultado{
+    border: 3px solid black;
+    padding: 20px 10px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
