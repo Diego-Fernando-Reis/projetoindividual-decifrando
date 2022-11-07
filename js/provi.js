@@ -80,10 +80,18 @@ function cifraDeCesarCodificar(valor, incremento) {
 
  while(i < arrayTemporario.length){
     if(cifraDeCesar.includes(arrayTemporario[i])){
-      arrayTemporario[i] = cifraDeCesar[(cifraDeCesar.indexOf(arrayTemporario[i]) + incremento) % 26];
+      if(cifraDeCesar.indexOf(arrayTemporario[i]) + incremento >= cifraDeCesar.length){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) + incremento - cifraDeCesar.length]; 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) + incremento];
+      }
       
     }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
-      arrayTemporario[i] = cifraDeCesar[(cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento) % 26].toLowerCase();
+      if(cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento >= cifraDeCesar.length){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento - cifraDeCesar.length].toLowerCase(); 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) + incremento].toLowerCase();
+      }
     }else{
       arrayTemporario[i] = arrayTemporario[i];
     }
@@ -102,10 +110,17 @@ function cifraDeCesarDecodificar(valor, incremento) {
  
   while(i < arrayTemporario.length){
     if(cifraDeCesar.includes(arrayTemporario[i])){
-      arrayTemporario[i] = cifraDeCesar[(cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i]) - (incremento % 26) ) % 26];
-      
+      if(cifraDeCesar.indexOf(arrayTemporario[i]) - incremento < 0){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i]) - incremento]; 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i]) - incremento];
+      }
     }else if(cifraDeCesar.includes(arrayTemporario[i].toUpperCase())){
-      arrayTemporario[i] = cifraDeCesar[(cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - (incremento % 26)) % 26].toLowerCase();
+      if(cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento < 0){
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.length + cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase(); 
+      }else{
+        arrayTemporario[i] = cifraDeCesar[cifraDeCesar.indexOf(arrayTemporario[i].toUpperCase()) - incremento].toLowerCase();
+      }
     }else{
      arrayTemporario[i] = arrayTemporario[i];
     }

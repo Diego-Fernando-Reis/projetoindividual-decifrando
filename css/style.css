@@ -102,4 +102,12 @@ form button:hover{
     padding: 20px 10px;
     border-radius: 5px;
     margin-top: 20px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.mostrarResultado p{
+    width: 100%;
+    position: relative;
+    word-wrap: break-word;
 }
