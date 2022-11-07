@@ -11,7 +11,7 @@ const formulario = document.getElementById('formulario');
 const mostrarResultado = document.getElementById('mostrarResultado');
 
 code.addEventListener('click', () => {
- modulo.innerHTML = `<p>Codificar Mensagem</p>`;
+ modulo.innerHTML = `<p>Codificar Mensagem!</p>`;
  mensagemCode.style.display = 'block';
  mensagemDecode.style.display = 'none';
  btn.innerText = 'Codificar';
@@ -19,7 +19,7 @@ code.addEventListener('click', () => {
 })
 
 decode.addEventListener('click', () => {
- modulo.innerHTML =`<p>Decodificar Mensagem</p>`;
+ modulo.innerHTML =`<p>Decodificar Mensagem!</p>`;
  mensagemCode.style.display = 'none';
  mensagemDecode.style.display = 'block';
  btn.innerText = 'Decodificar';
