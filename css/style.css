@@ -2,30 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#canvas{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
 }
 
 html, body{
     height: 100%;
+    background-color: #060601d0;
+    color: #00FF95;
 }
 
 header{
-    text-align: left;
+    text-align: center;
     padding: 10px 0;
-    background-color: black;
+    background-color: #060601;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 header .title{
     width: 90%;
     margin: 0 auto;
+    font-size: 22px;
+}
+
+span{
+    font-size: 14px;
+    color: rgb(145, 145, 145);
 }
 
 input[placeholder="Insira o incremento"]{
     display: none;
-    width: 500px;
-    border: 3px solid black;
+    max-width: 600px;
+    border: 3px solid #00FF95;
     border-radius: 5px;
     resize: none;
     padding: 10px;
@@ -34,18 +48,27 @@ input[placeholder="Insira o incremento"]{
 
 input{
     margin-bottom: 20px;
+    border: 3px solid #00FF95;
+    background-color: transparent;
+    color: #00FF95;
+    width: 600px;
 }
 
 textarea[placeholder="Informe aqui a mensagem a ser decodificada!"]{
     display: none;
+    border: 3px solid #00FF95;
+    background-color: transparent;
+    color: #00FF95;
 }
 
 textarea{
-    width: 500px;
-    border: 3px solid black;
+    width: 600px;
+    border: 3px solid #00FF95;
     border-radius: 5px;
     resize: none;
     padding: 10px;
+    background-color: transparent;
+    color: #00FF95;
 }
 form{
     width: 90%;
@@ -55,6 +78,10 @@ form{
 
 form .esquerda{
     width: 30%;
+}
+
+form .esquerda p{
+    margin-bottom: 40px;
 }
 
 .mostraModulo{
@@ -79,6 +106,7 @@ input[type='radio']{
     z-index: 7;
     color: black;
     margin-bottom: 30px;
+    margin-right: 12px;
 }
 
 form button{
@@ -98,12 +126,14 @@ form button:hover{
 }
 
 .mostrarResultado{
-    border: 3px solid black;
+    border: 3px solid #00FF95;
     padding: 20px 10px;
     border-radius: 5px;
     margin-top: 20px;
     position: relative;
     word-wrap: break-word;
+    width: 600px;
+    height: 150px;
 }
 
 .mostrarResultado p{
